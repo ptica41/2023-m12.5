@@ -107,6 +107,7 @@ function getPerfectPartner($surname, $name, $patronymic, $arr) {
     $patronymic = mb_convert_case($patronymic, MB_CASE_TITLE_SIMPLE);
     $strArg = getFullnameFromParts($surname, $name, $patronymic);
     $genderArg = getGenderFromName($strArg);
+    if ($genderArg === 0) {return 'Не удалось вернуть пару';}
     $strArg = getShortName($strArg);
     do {
     $strRand = $arr[array_rand($arr)]['fullname'];
